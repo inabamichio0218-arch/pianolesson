@@ -275,6 +275,14 @@
     .overlayCard p{ margin: 0 0 12px; font-weight: 800; color:#2b3344; }
     .overlayCard .btn{ width:100%; padding: 12px 14px; font-size: 16px; }
     .hide{ display:none !important; }
+    .btnSub{
+  background: rgba(16,21,34,.18);
+  color:#101522;
+  box-shadow: none;
+  border: 1px solid rgba(16,21,34,.18);
+}
+.btnSub:active{ transform: translateY(1px); }
+
   </style>
 </head>
 
@@ -293,6 +301,7 @@
         <span>鍵盤をクリック/タップすると鳴ります。</span>
         <small id="info">準備中…</small>
         <button class="btn" id="reEnable" type="button">🔊 音を有効化</button>
+        <button class="btn btnSub" id="resetBtn" type="button">↩ リセット</button>
         <div id="nowNote" class="nowNote">♪ まだ鳴っていません <span class="sub">（回数：0）</span></div>
       </div>
 
@@ -457,6 +466,13 @@
 
     // Status
     document.getElementById("info").textContent = "⚠ まず「音を有効化」を押してください";
+    document.getElementById("resetBtn").addEventListener("click", ()=>{
+  playCount = 0;
+  document.getElementById("nowNote").innerHTML =
+    `♪ まだ鳴っていません <span class="sub">（回数：0）</span>`;
+});
+
   </script>
 </body>
 </html>
+
